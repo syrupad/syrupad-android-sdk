@@ -117,6 +117,7 @@ AndroidMenifest.xml Sample Code
 ###Step IⅤ. 광고 View 생성 및 적용
 Syrup Ad 광고는 크게 배너 광고(inline), 삽입형 광고(interstitial) 그리고 플로팅(floating) 광고로 구분할 수 있습니다.
 개발자는 자신이 개발 중인 App내 원하는 크기의 광고를 수신하기 위해 아래 표에 정의된 Slot 중 한 개를 명시하여 광고를 요청하여야 합니다.
+
 배너 광고
 
 | Size (WxH) | Description         |AdSlot Constant  | AdSlot Value|
