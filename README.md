@@ -1,4 +1,4 @@
-#Syrup Ad Android SDK Developer Guide
+#Syrup Ad Android SDK Guide
 
 ### 준비사항
 1.	Syrup Ad SDK를 통해 광고를 수신하기 위해서는 Android 2.3 이상의 Android 개발 환경이 필요합니다. 자세한 내용은 http://developer.android.com 를 참고하세요.
@@ -33,8 +33,7 @@ A.	Activity설정
  ```xml
 <activity
 android:name="com.skplanet.tad.AdActivity"
-android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode
-|screenSize|smallestScreenSize"
+android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
 android:label="Ad Activity"
 android:theme="@android:style/Theme.NoTitleBar" />
 ```
@@ -43,8 +42,7 @@ android:theme="@android:style/Theme.NoTitleBar" />
 ```xml
 <activity
 android:name=".YourActivity"
-android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode
-|screenSize|smallestScreenSize"/>
+android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
 ```
 
 B.	Permission설정
@@ -98,14 +96,12 @@ AndroidMenifest.xml Sample Code
 
 <activity
             android:name=".YourActivity"
-            android:configChanges="keyboard|keyboardHidden
-|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar" />
         <activity
             android:name="com.skplanet.tad.AdActivity"
-            android:configChanges="keyboard|keyboardHidden
-|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:label="Ad Activity"
             android:theme="@android:style/Theme.NoTitleBar" />
 
