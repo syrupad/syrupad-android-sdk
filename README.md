@@ -120,7 +120,7 @@ Syrup Ad 광고는 크게 배너 광고(inline), 삽입형 광고(interstitial) 
 배너 광고
 
 | Size (WxH) | Description         |AdSlot Constant  | AdSlot Value|
-| ---------- | :------------------ | :-------------: | :---------: |
+| ---------- | :------------------ | :-------------  | :---------: |
 | 320x50     | Standard Banner     | BANNER          |2            |
 | 300x250    | IAB Medium Rectangle| MEDIUM_RECTANGLE|5            |
 | 320x100    | Large Banner        | LARGE_BANNER    |6            |
@@ -128,13 +128,13 @@ Syrup Ad 광고는 크게 배너 광고(inline), 삽입형 광고(interstitial) 
 삽입형 광고
 
 | Size (WxH) | Description         |AdSlot Constant  | AdSlot Value|
-| ---------- | :------------------ | :-------------: | :---------: |
+| ---------- | :------------------ | :-------------  | :---------: |
 | fullscreen | Interstitial        | INTERSTITIAL    |3            |
 
 플로팅 광고
 
 | Size (WxH) | Description         |AdSlot Constant  | AdSlot Value|
-| ---------- | :------------------ | :-------------: | :---------: |
+| ---------- | :------------------ | :-------------  | :---------: |
 | 100x100    | Floating            | FLOATING        |103          |
 
 ###배너 광고
@@ -168,7 +168,7 @@ useBackFill 속성을 true로 설정하면 각 광고마다 광고주가 설정�
 *	xml방식으로 적용을 하는 경우에도 destroy시점에 AdView.destroy()를 호출하여야 합니다. 
 
 | Type       | Description         |
-| ---------- | :------------------ |
+| :--------- | :------------------ |
 | NONE                   |효과 없음|
 |FADE	                   |Fade 효과|
 |ZOOM	                   |Zoom 효과|
