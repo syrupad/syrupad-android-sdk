@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/adViewDisplay"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1" >
+
+            <Button
+                android:id="@+id/termsBtn"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="약관 동의 팝업 창"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4" >
+
+            <Button
+                android:id="@+id/animationNone"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onButtonClicked"
+                android:text="None"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/animationFade"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onButtonClicked"
+                android:text="Fade"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/animationZoom"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onButtonClicked"
+                android:text="Zoom"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/animationRotate"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onButtonClicked"
+                android:text="Rotate"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4" >
+
+            <Button
+                android:id="@+id/animationSlideRL"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onButtonClicked"
+                android:text="Slide RL"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/animationSlideLR"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onButtonClicked"
+                android:text="Slide LR"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/animationSlideBT"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onButtonClicked"
+                android:text="Slide BT"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/animationSlideTB"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onButtonClicked"
+                android:text="Slide TB"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4" >
+
+            <Button
+                android:id="@+id/animationFlipH"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onButtonClicked"
+                android:text="Flip H"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/animationFlipV"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onButtonClicked"
+                android:text="Flip V"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/animationRotateH"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onButtonClicked"
+                android:text="Rotate H"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/animationRotateV"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onButtonClicked"
+                android:text="Rotate V"
+                android:textSize="14dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

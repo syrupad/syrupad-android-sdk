@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Syrup Ad Showcase</string>
+    <string name="show_interstitial">Show Interstitial</string>
+    <string name="load_interstitial">Load Interstitial</string>
+    <string name="show_floating">Show Floating</string>
+    <string name="load_floating">Load Floating</string>
+    <string name="application_content">Application Content Goes Here</string>
+</resources>
+

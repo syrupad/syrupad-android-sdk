@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/adViewDisplay"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffe8ffff"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LinearLayout"
+        android:textColor="#ffffffff"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#ffffe8df" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Custom View"
+            android:textColor="#ffffffff"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <com.skplanet.tad.AdView
+        android:id="@+id/tadView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        animationType="slide_from_top_to_bottom"
+        clientId="AXT002001" refreshInterval="15"
+        slotNo="2"    testMode="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#ffd8e8df" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Custom View"
+            android:textColor="#ffffffff"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+</LinearLayout>
