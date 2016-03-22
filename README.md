@@ -138,6 +138,12 @@ Syrup Ad 광고는 크게 배너 광고(inline), 삽입형 광고(interstitial) 
 | ---------- | :------------------ | :-------------  | :---------: |
 | 100x100    | Floating            | FLOATING        |103          |
 
+네이티브광고
+| Size (WxH) | Description         |AdSlot Constant  | AdSlot Value|
+| ---------- | :------------------ | :-------------  | :---------: |
+| -          | Native              | NATIVE          |7          |
+
+
 ###배너 광고
 Standard 배너, IAB Medium Rectangle배너, Large 배너는 AdView 클래스를 활용하여 App 개발자가 원하는 위치, 원하는 설정으로 광고View를 적용 할 수 있습니다. 배너 광고 적용에는 xml적용 방식과 java 적용 방식이 있습니다.
 
@@ -497,6 +503,24 @@ public void onAdClicked() { }
 public void onAdClosed(boolean user) { }
 };
 ```
+###네이티브광고
+네이티브광고는 SDK에서 광고의 형상을 결정하지 않고 매체의 UI/UX를 해치지 않는 광고를 서비스 하기 위한 Asset을 제공합니다. 
+3종의 광고 타입이 있으며 매체에서 어떤 광고 타입을 수신할지 설정이 가능합니다. 각 광고별 Asset의 종류는 다음과 같습니다. 
+
+#####Content Ad
+
+| Assets       | Example         |
+| :----------- | :-------------- |
+| NONE                   	|효과 없음|
+|Headline (max. 25 chars)	|Lowest mortgage rates|
+|Image (1200x627 px)	        |<Ad's main image>|
+|Body (max. 100 chars)          |Your home sweet Brooklyn home - cheaper and sooner than you think!|
+|Logo (128x128 px)         	|<NY Mortgage Inc.'s logo>|
+|Call to action (max. 15 chars)|Get a quote|
+|Advertiser (max. 25 chars)|NY Mortgage Inc.|
+|Click through URL (max. 1024 chars)	|http://www.nymtrust.com/|
+
+
 Step Ⅴ.  사용자 타겟팅 설정(option)
 Syrup Ad 에서는 App사용자들에게 맞춤형 광고를 제공하기 위해 아래 두 가지 기능을 제공합니다. 사용자 개인정보가 수집이 되면 반응률이 높은 맞춤형 광고를 받을 수 있습니다.
 사용자 정보 전달
