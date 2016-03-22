@@ -139,6 +139,7 @@ Syrup Ad 광고는 크게 배너 광고(inline), 삽입형 광고(interstitial) 
 | 100x100    | Floating            | FLOATING        |103          |
 
 네이티브광고
+
 | Size (WxH) | Description         |AdSlot Constant  | AdSlot Value|
 | ---------- | :------------------ | :-------------  | :---------: |
 |            | Native              | NATIVE          |7            |
@@ -543,6 +544,58 @@ public void onAdClosed(boolean user) { }
 |Price (max. 15 chars)	|₩90,000|
 |Sale Price (max. 15 chars)		|₩77,900|
 |Click through URL (max. 1024 chars)|http://deal.11st.co.kr/product/SellerProductDetail.tmall?method=getSellerProductDetail&prdNo=1243296986|
+
+#####AdNative
+AdNative instance를 생성하고 loadAd()를 실행합니다.
+loadAd()의 수행결과(광고)는 AdNativeListener, onAdLoaded()를 통해 확인 할 수 있습니다. 
+```java
+AdNative adNative = new AdNative((Activity)getContext())
+.setClientId("AXT999001") // 준비 과정에 발급받은 ClientId를 직접 입력합니다
+.setSlotNo(AdSlot.NATIVE) // Slot을 설정합니다. 
+.enableProductAd()
+.setReturnUrlsForImageAssets(false);
+adNative.setListener(new AdNativeListener() {
+    @Override
+    public void onAdFailed(AdRequest.ErrorCode errorCode) {}
+ 
+    @Override
+    public void onAdWillLoad() {}
+ 
+    @Override
+    public void onAdLoaded(NativeAd nativeAd) {
+        if (nativeAd instanceof NativeProductAd) {
+            // ((NativeProductAd) nativeAd).getBody();
+            // ((NativeProductAd) nativeAd).getImages();
+            // ((NativeProductAd) nativeAd).getCallToAction();
+            // ((NativeProductAd) nativeAd).getHeadline();
+            // ((NativeProductAd) nativeAd).getLogo();
+            // ((NativeProductAd) nativeAd).getPrice();
+            // ((NativeProductAd) nativeAd).getSalePrice();
+            // ((NativeProductAd) nativeAd).getStore();
+        } else if(nativeAd instanceof NativeAppInstallAd) {
+            // TODO
+        } else if(nativeAd instanceof NativeContentAd) {
+            // TODO
+        }
+    }
+ 
+    @Override
+    public void onAdPresentScreen() {}
+ 
+    @Override
+    public void onAdDismissScreen() {}
+ 
+    @Override
+    public void onAdLeaveApplication() {}
+});
+ 
+try {
+    adNative.loadAd();
+} catch (Exception e) {
+    e.printStackTrace();
+}
+```
+
 
 ### Step Ⅴ.  사용자 타겟팅 설정(option)
 Syrup Ad 에서는 App사용자들에게 맞춤형 광고를 제공하기 위해 아래 두 가지 기능을 제공합니다. 사용자 개인정보가 수집이 되면 반응률이 높은 맞춤형 광고를 받을 수 있습니다.
