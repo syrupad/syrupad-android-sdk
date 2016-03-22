@@ -141,7 +141,7 @@ Syrup Ad 광고는 크게 배너 광고(inline), 삽입형 광고(interstitial) 
 네이티브광고
 | Size (WxH) | Description         |AdSlot Constant  | AdSlot Value|
 | ---------- | :------------------ | :-------------  | :---------: |
-| -          | Native              | NATIVE          |7          |
+|            | Native              | NATIVE          |7            |
 
 
 ###배너 광고
@@ -508,10 +508,8 @@ public void onAdClosed(boolean user) { }
 3종의 광고 타입이 있으며 매체에서 어떤 광고 타입을 수신할지 설정이 가능합니다. 각 광고별 Asset의 종류는 다음과 같습니다. 
 
 #####Content Ad
-
 | Assets       | Example         |
 | :----------- | :-------------- |
-| NONE                   	|효과 없음|
 |Headline (max. 25 chars)	|Lowest mortgage rates|
 |Image (1200x627 px)	        |<Ad's main image>|
 |Body (max. 100 chars)          |Your home sweet Brooklyn home - cheaper and sooner than you think!|
@@ -520,8 +518,33 @@ public void onAdClosed(boolean user) { }
 |Advertiser (max. 25 chars)|NY Mortgage Inc.|
 |Click through URL (max. 1024 chars)	|http://www.nymtrust.com/|
 
+#####App Install Ad
+| Assets       | Example         |
+| :----------- | :-------------- |
+|Headline (max. 25 chars)	|Flood-It!|
+|Image (1200x627 px)	        |<A screenshot from the game Flood-It!>|
+|Body (max. 100 chars)          |Deceptively simple + tantalizingly challenging = delightfully addictive!|
+|App icon (128x128 px)        	|<Flood-it! app icon>|
+|Call to action (max. 15 chars)	|Install|
+|Star rating (0 - 5)		|4.5|
+|Store (max. 25 chars)		|Google Play|
+|Price (max. 15 chars)		|Free|
+|Click through URL (max. 1024 chars)|https://play.google.com/store/apps/details?id=com.labpixies.flood|
 
-Step Ⅴ.  사용자 타겟팅 설정(option)
+#####Product Ad
+| Assets       | Example         |
+| :----------- | :-------------- |
+|Headline (max. 25 chars)	|정관장 홍삼정에브리타임 10ml*30|
+|Image (1200x627 px)	        |<Ad's main image>|
+|Body (max. 100 chars)          |품격있는 홍삼 선물. 정관장. 금방 품절됩니다! 인기 제품만 골라 7종 모음! 쇼핑백 무조건 동봉!|
+|Logo (128x128 px)        	|<11st's logo>|
+|Call to action (max. 15 chars)	|Go to shopping|
+|Store (max. 25 chars)		|4.5|
+|Price (max. 15 chars)	|₩90,000|
+|Sale Price (max. 15 chars)		|₩77,900|
+|Click through URL (max. 1024 chars)|http://deal.11st.co.kr/product/SellerProductDetail.tmall?method=getSellerProductDetail&prdNo=1243296986|
+
+### Step Ⅴ.  사용자 타겟팅 설정(option)
 Syrup Ad 에서는 App사용자들에게 맞춤형 광고를 제공하기 위해 아래 두 가지 기능을 제공합니다. 사용자 개인정보가 수집이 되면 반응률이 높은 맞춤형 광고를 받을 수 있습니다.
 사용자 정보 전달
 개별 앱에서 개인정보 활용에 동의를 받은 경우 해당 정보를 통해 맞춤형 광고를 노출 할 수 있습니다. 
