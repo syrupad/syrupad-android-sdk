@@ -511,9 +511,9 @@ public void onAdClosed(boolean user) { }
 | Assets       | Example         |
 | :----------- | :-------------- |
 |Headline (max. 25 chars)	|Lowest mortgage rates|
-|Image (1200x627 px)	        |<Ad's main image>|
+|Image (1200x627 px)	        |Ad's main image|
 |Body (max. 100 chars)          |Your home sweet Brooklyn home - cheaper and sooner than you think!|
-|Logo (128x128 px)         	|<NY Mortgage Inc.'s logo>|
+|Logo (128x128 px)         	|NY Mortgage Inc.'s logo|
 |Call to action (max. 15 chars)|Get a quote|
 |Advertiser (max. 25 chars)|NY Mortgage Inc.|
 |Click through URL (max. 1024 chars)	|http://www.nymtrust.com/|
@@ -522,9 +522,9 @@ public void onAdClosed(boolean user) { }
 | Assets       | Example         |
 | :----------- | :-------------- |
 |Headline (max. 25 chars)	|Flood-It!|
-|Image (1200x627 px)	        |<A screenshot from the game Flood-It!>|
+|Image (1200x627 px)	        |A screenshot from the game Flood-It!|
 |Body (max. 100 chars)          |Deceptively simple + tantalizingly challenging = delightfully addictive!|
-|App icon (128x128 px)        	|<Flood-it! app icon>|
+|App icon (128x128 px)        	|Flood-it! app icon|
 |Call to action (max. 15 chars)	|Install|
 |Star rating (0 - 5)		|4.5|
 |Store (max. 25 chars)		|Google Play|
@@ -535,9 +535,9 @@ public void onAdClosed(boolean user) { }
 | Assets       | Example         |
 | :----------- | :-------------- |
 |Headline (max. 25 chars)	|정관장 홍삼정에브리타임 10ml*30|
-|Image (1200x627 px)	        |<Ad's main image>|
+|Image (1200x627 px)	        |Ad's main image|
 |Body (max. 100 chars)          |품격있는 홍삼 선물. 정관장. 금방 품절됩니다! 인기 제품만 골라 7종 모음! 쇼핑백 무조건 동봉!|
-|Logo (128x128 px)        	|<11st's logo>|
+|Logo (128x128 px)        	|11st's logo|
 |Call to action (max. 15 chars)	|Go to shopping|
 |Store (max. 25 chars)		|4.5|
 |Price (max. 15 chars)	|₩90,000|
