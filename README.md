@@ -142,7 +142,7 @@ Syrup Ad 광고는 크게 배너 광고(inline), 삽입형 광고(interstitial) 
 
 | Size (WxH) | Description         |AdSlot Constant  | AdSlot Value|
 | ---------- | :------------------ | :-------------  | :---------: |
-|            | Native              | NATIVE          |7            |
+|    n/a     | Native              | NATIVE          |7            |
 
 
 ###배너 광고
@@ -505,7 +505,6 @@ public void onAdClosed(boolean user) { }
 };
 ```
 ###네이티브광고
-네이티브광고는 SDK에서 광고의 형상을 결정하지 않고 매체의 UI/UX를 해치지 않는 광고를 서비스 하기 위한 Asset을 제공합니다. 
 3종의 광고 타입이 있으며 매체에서 어떤 광고 타입을 수신할지 설정이 가능합니다. 각 광고별 Asset의 종류는 다음과 같습니다. 
 
 #####Content Ad
@@ -656,7 +655,7 @@ bind()함수를 사용하면 네이티브광고가 적용된 View와 네이티�
 AdNative.bind(view, nativeAd);
 
 //광고가 보이지 않을때 호출합니다. 
-AdNative.unbind(view, nativeAd);ㅜㅁ
+AdNative.unbind(view, nativeAd);
 ```
 
 
