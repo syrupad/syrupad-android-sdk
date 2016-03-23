@@ -556,7 +556,9 @@ public void onAdClosed(boolean user) { }
 |5|Carousel|
 |6|Content Stream|
 |7|Grid adjoining the content|
+![Image of Layout Style](http://syrupad.github.io/syrupad-android-sdk/readme-screenshots/ss_layout_01.png)
 
+![Image of Layout Style](http://syrupad.github.io/syrupad-android-sdk/readme-screenshots/ss_layout_02.png)
 
 #####AdNative
 AdNative instance를 생성하고 loadAd()를 실행합니다.
