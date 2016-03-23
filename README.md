@@ -504,7 +504,7 @@ public void onAdClicked() { }
 public void onAdClosed(boolean user) { }
 };
 ```
-###네이티브광고
+###네이티브 광고
 3종의 광고 타입이 있으며 매체에서 어떤 광고 타입을 수신할지 설정이 가능합니다. 각 광고별 Asset의 종류는 다음과 같습니다. 
 
 #####Content Ad
@@ -544,8 +544,8 @@ public void onAdClosed(boolean user) { }
 |Sale Price (max. 15 chars)		|₩77,900|
 |Click through URL (max. 1024 chars)|http://deal.11st.co.kr/product/SellerProductDetail.tmall?method=getSellerProductDetail&prdNo=1243296986|
 
-#####GraphicalLayoutStyle
-iab(광고협회)의 [OpenRTB Dynamic Native Ads Version1](http://www.iab.net/media/file/OpenRTB-Native-Ads-Specification-1_0-Final.pdf)에서 정의한 Layout ID는 아래와 같이 정의 합니다. 광고 요청 시점에 해당값을 입력 할 수 있습니다. 
+#####LayoutStyle
+매체의 Layout형태를 광고 요청 시점에 입력 할 수 있습니다. 
 
 | Laytout ID       | Description         |
 | :----------- | :-------------- |
@@ -570,7 +570,7 @@ AdNative adNative = new AdNative((Activity)getContext())
 .enableAppInstallAd()  // App Install Ad 상품을 받고자 할 때 설정합니다. 
 .enableProductAd()  // Product Ad 상품을 받고자 할 때 설정합니다. 
 
-.AdNativeLayoutStyle(AdNative.GraphicalLayoutStyle.APP_WALL) //LayoutStyle을 지정합니다. 
+.setLayoutStyle(AdNative.LayoutStyle.APP_WALL) //LayoutStyle을 지정합니다. 
 .setReturnUrlsForImageAssets(false); // image, icon, logo등의 asset정보를 Url로만 받고자 할때 true로 설정합니다. 
 
 adNative.setListener(new AdNativeListener() {
@@ -583,15 +583,16 @@ adNative.setListener(new AdNativeListener() {
     @Override
     public void onAdLoaded(NativeAd nativeAd) {
     	//loadAd()의 결과로 NativeAd 를 확인 할 수 있습니다. 
-        if (nativeAd instanceof NativeProductAd) {
-            // ((NativeProductAd) nativeAd).getBody();
-            // ((NativeProductAd) nativeAd).getImages();
-            // ((NativeProductAd) nativeAd).getCallToAction();
-            // ((NativeProductAd) nativeAd).getHeadline();
-            // ((NativeProductAd) nativeAd).getLogo();
-            // ((NativeProductAd) nativeAd).getPrice();
-            // ((NativeProductAd) nativeAd).getSalePrice();
-            // ((NativeProductAd) nativeAd).getStore();
+    	if(nativeAd instanceof NativeContentAd) {
+            //((NativeProductAd) nativeAd).getBody();
+            //((NativeProductAd) nativeAd).getPrice();
+            //((NativeProductAd) nativeAd).getStore();
+            //((NativeProductAd) nativeAd).getSalePrice();
+            //((NativeProductAd) nativeAd).getImages();
+            //((NativeProductAd) nativeAd).getCallToAction();
+            //((NativeProductAd) nativeAd).getHeadline();
+            //((NativeProductAd) nativeAd).getLogo();
+            
         } else if(nativeAd instanceof NativeAppInstallAd) {
             //((NativeAppInstallAd) nativeAd).getBody();
             //((NativeAppInstallAd) nativeAd).getHeadline();
@@ -601,16 +602,16 @@ adNative.setListener(new AdNativeListener() {
             //((NativeAppInstallAd) nativeAd).getIcon();
             //((NativeAppInstallAd) nativeAd).getPrice();
             //((NativeAppInstallAd) nativeAd).getStore();
-        } else if(nativeAd instanceof NativeContentAd) {
-            //((NativeProductAd) nativeAd).getBody();
-            //((NativeProductAd) nativeAd).getPrice();
-            //((NativeProductAd) nativeAd).getStore();
-            //((NativeProductAd) nativeAd).getSalePrice();
-            //((NativeProductAd) nativeAd).getImages();
-            //((NativeProductAd) nativeAd).getCallToAction();
-            //((NativeProductAd) nativeAd).getHeadline();
-            //((NativeProductAd) nativeAd).getLogo();
-        }
+            
+        } else if (nativeAd instanceof NativeProductAd) {
+            // ((NativeProductAd) nativeAd).getBody();
+            // ((NativeProductAd) nativeAd).getImages();
+            // ((NativeProductAd) nativeAd).getCallToAction();
+            // ((NativeProductAd) nativeAd).getHeadline();
+            // ((NativeProductAd) nativeAd).getLogo();
+            // ((NativeProductAd) nativeAd).getPrice();
+            // ((NativeProductAd) nativeAd).getSalePrice();
+            // ((NativeProductAd) nativeAd).getStore();
     }
  
     @Override
@@ -624,7 +625,7 @@ adNative.setListener(new AdNativeListener() {
 });
  
 try {
-    adNative.loadAd();
+    adNative.loadAd();  //광고를 요청합니다. 
 } catch (Exception e) {
     e.printStackTrace();
 }
@@ -639,16 +640,9 @@ protected void onDestroy() {
 ```
 
 #####노출과 클릭
-네이티브광고는 타광고와는 다르게 노출과 클릭에 대한 API 를 호출해야합니다. 클릭에 대한 landing은 SDK가 처리합니다.
-하나의 네이티비광고에 대해 복수개의 노출API가 호출되더라도 통계에는 한 개만 집게가 되고 클릭API는 매번 집게가 됩니다. (부정Click 제외)
-```java
-//광고가 사용자의 눈에 노출이 될 때 호출합니다. 
-nativeAd.impression(context);
-            
-//광고가 사용자에 의해 Click이 될 때 호출합니다. 
-nativeAd.click(context);
-```
-노출과 클릭을 간편하게 적용할 수 있는 bind(), Unbind() 메소드를 제공합니다. 
+네이티브광고는 타광고와는 다르게 노출과 클릭에 대한 API 를 매체에서 직접 호출해야합니다. 
+
+노출과 클릭을 간편하게 적용할 수 있는 bind(), unbind() 메소드를 제공합니다. 
 bind()함수를 사용하면 네이티브광고가 적용된 View와 네이티브 광고를 매핑하여 노출, 클릭 API를 자동으로 호출합니다. 
 ```java
 //광고가 사용자의 눈에 노출이 될 때 호출합니다. 
@@ -658,6 +652,15 @@ AdNative.bind(view, nativeAd);
 AdNative.unbind(view, nativeAd);
 ```
 
+bind()함수를 사용하지 않는다면 직접 노출과 클릭에 대한 API를 호출해야 합니다. 
+```java
+//광고가 사용자의 눈에 노출이 될 때 호출합니다. 
+nativeAd.impression(context);
+            
+//광고가 사용자에 의해 Click이 될 때 호출합니다. 
+nativeAd.click(context);
+```
+참고로 하나의 네이티비광고에 대해 복수개의 노출API가 호출되더라도 통계에는 한 개만 집게가 되고 클릭API는 매번 집게가 됩니다. (단 부정Click 제외)
 
 ### Step Ⅴ.  사용자 타겟팅 설정(option)
 Syrup Ad 에서는 App사용자들에게 맞춤형 광고를 제공하기 위해 아래 두 가지 기능을 제공합니다. 사용자 개인정보가 수집이 되면 반응률이 높은 맞춤형 광고를 받을 수 있습니다.
