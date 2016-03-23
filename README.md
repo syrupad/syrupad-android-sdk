@@ -545,6 +545,20 @@ public void onAdClosed(boolean user) { }
 |Sale Price (max. 15 chars)		|₩77,900|
 |Click through URL (max. 1024 chars)|http://deal.11st.co.kr/product/SellerProductDetail.tmall?method=getSellerProductDetail&prdNo=1243296986|
 
+#####GraphicalLayoutStyle
+iab(광고협회)의 [OpenRTB Dynamic Native Ads Version1](http://www.iab.net/media/file/OpenRTB-Native-Ads-Specification-1_0-Final.pdf)에서 정의한 Layout ID는 아래와 같이 정의 합니다. 
+
+| Laytout ID       | Description         |
+| :----------- | :-------------- |
+|1|Content Wall|
+|2|App Wall|
+|3|News Feed|
+|4|Chat List|
+|5|Carousel|
+|6|Content Stream|
+|7|Grid adjoining the content|
+
+
 #####AdNative
 AdNative instance를 생성하고 loadAd()를 실행합니다.
 loadAd()의 수행결과(광고)는 AdNativeListener, onAdLoaded()를 통해 확인 할 수 있습니다. 
@@ -552,8 +566,14 @@ loadAd()의 수행결과(광고)는 AdNativeListener, onAdLoaded()를 통해 확
 AdNative adNative = new AdNative((Activity)getContext())
 .setClientId("AXT999001") // 준비 과정에 발급받은 ClientId를 직접 입력합니다
 .setSlotNo(AdSlot.NATIVE) // Slot을 설정합니다. 
-.enableProductAd()
-.setReturnUrlsForImageAssets(false);
+
+.enableContentAd() // Content Ad 상품을 받고자 할 때 설정합니다. 
+.enableAppInstallAd()  // App Install Ad 상품을 받고자 할 때 설정합니다. 
+.enableProductAd()  // Product Ad 상품을 받고자 할 때 설정합니다. 
+
+.AdNativeLayoutStyle(AdNative.GraphicalLayoutStyle.APP_WALL) //LayoutStyle을 지정합니다. 
+.setReturnUrlsForImageAssets(false); // image, icon, logo등의 asset정보를 Url로만 받고자 할때 true로 설정합니다. 
+
 adNative.setListener(new AdNativeListener() {
     @Override
     public void onAdFailed(AdRequest.ErrorCode errorCode) {}
@@ -563,6 +583,7 @@ adNative.setListener(new AdNativeListener() {
  
     @Override
     public void onAdLoaded(NativeAd nativeAd) {
+    	//loadAd()의 결과로 NativeAd 를 확인 할 수 있습니다. 
         if (nativeAd instanceof NativeProductAd) {
             // ((NativeProductAd) nativeAd).getBody();
             // ((NativeProductAd) nativeAd).getImages();
@@ -573,9 +594,23 @@ adNative.setListener(new AdNativeListener() {
             // ((NativeProductAd) nativeAd).getSalePrice();
             // ((NativeProductAd) nativeAd).getStore();
         } else if(nativeAd instanceof NativeAppInstallAd) {
-            // TODO
+            //((NativeAppInstallAd) ad).getBody();
+            //((NativeAppInstallAd) ad).getHeadline();
+            //((NativeAppInstallAd) ad).getStarRating();
+            //((NativeAppInstallAd) ad).getCallToAction();
+            //((NativeAppInstallAd) ad).getImages();
+            //((NativeAppInstallAd) ad).getIcon();
+            //((NativeAppInstallAd) ad).getPrice();
+            //((NativeAppInstallAd) ad).getStore();
         } else if(nativeAd instanceof NativeContentAd) {
-            // TODO
+            //((NativeProductAd) ad).getBody();
+            //((NativeProductAd) ad).getPrice();
+            //((NativeProductAd) ad).getStore();
+            //((NativeProductAd) ad).getSalePrice();
+            //((NativeProductAd) ad).getImages();
+            //((NativeProductAd) ad).getCallToAction();
+            //((NativeProductAd) ad).getHeadline();
+            //((NativeProductAd) ad).getLogo();
         }
     }
  
@@ -595,7 +630,7 @@ try {
     e.printStackTrace();
 }
 ```
-
+AdNativeListener
 
 ### Step Ⅴ.  사용자 타겟팅 설정(option)
 Syrup Ad 에서는 App사용자들에게 맞춤형 광고를 제공하기 위해 아래 두 가지 기능을 제공합니다. 사용자 개인정보가 수집이 되면 반응률이 높은 맞춤형 광고를 받을 수 있습니다.
