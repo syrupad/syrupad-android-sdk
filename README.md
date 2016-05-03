@@ -6,18 +6,50 @@
 2.	광고 수신과 정산 목적의 Client ID가 필요합니다. http://www.syrupad.co.kr 에서 매체 등록 후 Client ID를 발급 받으세요.
 
 ### Step I.  Syrup Ad SDK integration
-1.	Syrup Ad 공식사이트(http://www.syrupad.co.kr) 에서 SyrupAdSDK.jar 파일을 다운로드 받습니다.
-2.	다운받은 SDK 내의 SDK.jar 파일을 자신의 Android 프로젝트에 libs 폴더에 복사합니다.
-3.	Package Explorer(패키지 탐색기) 탭에서 프로젝트를 마우스 우측 버튼으로 클릭하여 Properties(속성)를 선택합니다.
-4.	좌측 패널에서 Java Build Path를 선택합니다.
-5.	기본 창에서 Libraries(라이브러리) 탭을 선택합니다.
-6.	Add JARs...를 클릭합니다.
-7.	이전에 libs 디렉터리에 복사했던 SyrupAdSDK.jar 파일을 선택합니다.
-8.	OK를 클릭하여 파일을 Android 프로젝트에 추가합니다.
+
+Syrup Ad 공식사이트(http://www.syrupad.co.kr) 에서 SyrupAdSDK.jar 파일을 다운로드 받습니다.
+
+A. Android studio
+1. Android project의 Open Module Settings 메뉴를 선택합니다. 
+2. 왼쪽 상단에 + 버튼을 눌러 import .JAR/.AAR package를 선택합니다. 
+3. 다운로드 받은 SDK를 선택합니다.
+4. Application Modules에 Dependencies에 SDK모듈을 추가합니다. 
+5. 아래와 같이 dependencies가 추가되었는지 확인합니다. 
+
+```xml
+apply plugin: 'com.android.application'
+    ...
+
+    dependencies {
+        compile project(':SyrupAdSdk_3.x.x')
+    }
+```
+B. Eclipse
+1.	다운받은 SDK 내의 SDK.jar 파일을 자신의 Android 프로젝트에 libs 폴더에 복사합니다.
+2.	Package Explorer(패키지 탐색기) 탭에서 프로젝트를 마우스 우측 버튼으로 클릭하여 Properties(속성)를 선택합니다.
+3.	좌측 패널에서 Java Build Path를 선택합니다.
+4.	기본 창에서 Libraries(라이브러리) 탭을 선택합니다.
+5.	Add JARs...를 클릭합니다.
+6.	이전에 libs 디렉터리에 복사했던 SyrupAdSDK.jar 파일을 선택합니다.
+7.	OK를 클릭하여 파일을 Android 프로젝트에 추가합니다.
 
 ### Step II. Google Play services SDK integration
+
 SyrupAd SDK 3.10.0 이후 버전부터는 Google Play services SDK를 참조하여 Google Advertising ID를 추출 하고 있습니다. 아래 가이드를 준수하지 않은 경우 광고 수신이 불가합니다.
 
+A. Android studio
+gradle 파일내 dependencies에 아래 구문을 추가합니다.
+```xml
+apply plugin: 'com.android.application'
+    ...
+
+    dependencies {
+        compile 'com.google.android.gms:play-services:8.4.0'
+    }
+```
+자세한 내용은 안드로이드 개발자 가이드(https://developers.google.com/android/guides/setup#add_google_play_services_to_your_project)를 참고하세요.
+
+B. Eclipse
 1.  아래 위치의 Google Play services library project를 자신의 workspace에 import합니다.<android-sdk>/extras/google/google_play_services/libproject/google-play-services_lib/
 2.  개발중인 프로젝트의 Properties - Android 설정으로 진입합니다.
 3.	하단에 Library 탭의 Add.. 버튼을 누릅니다.
@@ -54,7 +86,7 @@ B.	Permission설정
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   ```
-C.	Google Play services SDK 설정
+C.	Google Play services SDK 설정(android studio 환경에서는 제외)
 Google Advertising ID 추출을 위해 아래 코드를 추가합니다. 
  ```xml
  <meta-data android:name="com.google.android.gms.version"
