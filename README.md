@@ -9,7 +9,8 @@
 
 Syrup Ad 공식사이트(http://www.syrupad.co.kr) 에서 SyrupAdSDK.jar 파일을 다운로드 받습니다.
 
-A. Android studio
+A.	Android studio
+
 1. Android project의 Open Module Settings 메뉴를 선택합니다. 
 2. 왼쪽 상단에 + 버튼을 눌러 import .JAR/.AAR package를 선택합니다. 
 3. 다운로드 받은 SDK를 선택합니다.
@@ -24,7 +25,8 @@ apply plugin: 'com.android.application'
         compile project(':SyrupAdSdk_3.x.x')
     }
 ```
-B. Eclipse
+B.	Eclipse
+
 1.	다운받은 SDK 내의 SDK.jar 파일을 자신의 Android 프로젝트에 libs 폴더에 복사합니다.
 2.	Package Explorer(패키지 탐색기) 탭에서 프로젝트를 마우스 우측 버튼으로 클릭하여 Properties(속성)를 선택합니다.
 3.	좌측 패널에서 Java Build Path를 선택합니다.
@@ -37,7 +39,8 @@ B. Eclipse
 
 SyrupAd SDK 3.10.0 이후 버전부터는 Google Play services SDK를 참조하여 Google Advertising ID를 추출 하고 있습니다. 아래 가이드를 준수하지 않은 경우 광고 수신이 불가합니다.
 
-A. Android studio
+A.	Android studio
+
 gradle 파일내 dependencies에 아래 구문을 추가합니다.
 ```xml
 apply plugin: 'com.android.application'
@@ -49,7 +52,8 @@ apply plugin: 'com.android.application'
 ```
 자세한 내용은 안드로이드 개발자 가이드(https://developers.google.com/android/guides/setup#add_google_play_services_to_your_project)를 참고하세요.
 
-B. Eclipse
+B.	Eclipse
+
 1.  아래 위치의 Google Play services library project를 자신의 workspace에 import합니다.<android-sdk>/extras/google/google_play_services/libproject/google-play-services_lib/
 2.  개발중인 프로젝트의 Properties - Android 설정으로 진입합니다.
 3.	하단에 Library 탭의 Add.. 버튼을 누릅니다.
