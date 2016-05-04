@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">showcase</string>
-    <string name="title_activity_syrup_ad_showcase">SyrupAdShowcase</string>
+    <string name="title_activity_syrup_ad_showcase">Syrup Ad Showcase</string>
 
     <string name="show_interstitial">Show Interstitial</string>
     <string name="load_interstitial">Load Interstitial</string>
