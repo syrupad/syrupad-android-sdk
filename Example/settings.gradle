@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':SyrupAdSDK_3.14.0'

@@ -1,0 +1,2 @@
+configurations.create("default")
+artifacts.add("default", file('SyrupAdSDK_3.14.0.jar'))

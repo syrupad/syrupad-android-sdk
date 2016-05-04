@@ -9,9 +9,9 @@ import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.SeekBar;
+import android.widget.Toast;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.skplanet.tad.AdFloating;
 import com.skplanet.tad.AdFloatingListener;
