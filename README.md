@@ -130,7 +130,7 @@ AndroidMenifest.xml Sample Code
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-<activity
+        <activity
             android:name=".YourActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:label="@string/app_name"
