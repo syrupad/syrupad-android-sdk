@@ -1,4 +1,4 @@
-#Syrup Ad Android SDK Guide
+# Syrup Ad Android SDK Guide
 
 ### 준비사항
 1.	Syrup Ad SDK를 통해 광고를 수신하기 위해서는 Android 2.3 이상의 Android 개발 환경이 필요합니다. 자세한 내용은 http://developer.android.com 를 참고하세요.
@@ -82,13 +82,11 @@ android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|s
 ```
 
 B.	Permission설정
-광고 수신을 위해서는 아래 5개의 Permission을 선언하여야 합니다. 이중 INTERNET, WRITE_EXTERNAL_STORAGE Permission은 필수 항목입니다. 사용하시는 target SdkVersion =19 이상인 경우 READ_EXTERNAL_STORAGE Permission을 추가합니다.
+광고 수신을 위해서는 아래 5개의 Permission을 선언하여야 합니다. 이중 INTERNET, ACCESS_NETWORK_STATE, WRITE_EXTERNAL_STORAGE Permission은 필수 항목입니다.
   ```xml
 <uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   ```
 C.	Google Play services SDK 설정(android studio 환경에서는 제외)
 Google Advertising ID 추출을 위해 아래 코드를 추가합니다. 
@@ -118,10 +116,8 @@ AndroidMenifest.xml Sample Code
         android:targetSdkVersion="15" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:icon="@drawable/appicon"
@@ -159,8 +155,6 @@ Syrup Ad 광고는 크게 배너 광고(inline), 삽입형 광고(interstitial) 
 | Size (WxH) | Description         |AdSlot Constant  | AdSlot Value|
 | ---------- | :------------------ | :-------------  | :---------: |
 | 320x50     | Standard Banner     | BANNER          |2            |
-| 300x250    | IAB Medium Rectangle| MEDIUM_RECTANGLE|5            |
-| 320x100    | Large Banner        | LARGE_BANNER    |6            |
 
 삽입형 광고
 
@@ -173,12 +167,6 @@ Syrup Ad 광고는 크게 배너 광고(inline), 삽입형 광고(interstitial) 
 | Size (WxH) | Description         |AdSlot Constant  | AdSlot Value|
 | ---------- | :------------------ | :-------------  | :---------: |
 | 100x100    | Floating            | FLOATING        |103          |
-
-네이티브광고
-
-| Size (WxH) | Description         |AdSlot Constant  | AdSlot Value|
-| ---------- | :------------------ | :-------------  | :---------: |
-|    n/a     | Native              | NATIVE          |7            |
 
 
 ### 배너 광고
@@ -540,165 +528,6 @@ public void onAdClicked() { }
 public void onAdClosed(boolean user) { }
 };
 ```
-### 네이티브 광고
-3종의 광고 타입이 있으며 매체에서 어떤 광고 타입을 수신할지 설정이 가능합니다. 각 광고별 Asset의 종류는 다음과 같습니다. 
-
-##### Content Ad
-| Assets       | Example         |
-| :----------- | :-------------- |
-|Headline (max. 25 chars)	|Lowest mortgage rates|
-|Image (1200x627 px)	        |Ad's main image|
-|Body (max. 100 chars)          |Your home sweet Brooklyn home - cheaper and sooner than you think!|
-|Logo (128x128 px)         	|NY Mortgage Inc.'s logo|
-|Call to action (max. 15 chars)|Get a quote|
-|Advertiser (max. 25 chars)|NY Mortgage Inc.|
-|Click through URL (max. 1024 chars)	|http://www.nymtrust.com/|
-
-##### App Install Ad
-| Assets       | Example         |
-| :----------- | :-------------- |
-|Headline (max. 25 chars)	|Flood-It!|
-|Image (1200x627 px)	        |A screenshot from the game Flood-It!|
-|Body (max. 100 chars)          |Deceptively simple + tantalizingly challenging = delightfully addictive!|
-|App icon (128x128 px)        	|Flood-it! app icon|
-|Call to action (max. 15 chars)	|Install|
-|Star rating (0 - 5)		|4.5|
-|Store (max. 25 chars)		|Google Play|
-|Price (max. 15 chars)		|Free|
-|Click through URL (max. 1024 chars)|https://play.google.com/store/apps/details?id=com.labpixies.flood|
-
-##### Product Ad
-| Assets       | Example         |
-| :----------- | :-------------- |
-|Headline (max. 25 chars)	|정관장 홍삼정에브리타임 10ml*30|
-|Image (1200x627 px)	        |Ad's main image|
-|Body (max. 100 chars)          |품격있는 홍삼 선물. 정관장. 금방 품절됩니다! 인기 제품만 골라 7종 모음! 쇼핑백 무조건 동봉!|
-|Logo (128x128 px)        	|11st's logo|
-|Call to action (max. 15 chars)	|Go to shopping|
-|Store (max. 25 chars)		|4.5|
-|Price (max. 15 chars)	|₩90,000|
-|Sale Price (max. 15 chars)		|₩77,900|
-|Click through URL (max. 1024 chars)|http://deal.11st.co.kr/product/SellerProductDetail.tmall?method=getSellerProductDetail&prdNo=1243296986|
-
-##### LayoutStyle
-매체의 Layout형태를 광고 요청 시점에 입력 할 수 있습니다. 
-
-| Laytout ID       | Description         |
-| :----------- | :-------------- |
-|1|Content Wall|
-|2|App Wall|
-|3|News Feed|
-|4|Chat List|
-|5|Carousel|
-|6|Content Stream|
-|7|Grid adjoining the content|
-![Image of Layout Style](http://syrupad.github.io/syrupad-android-sdk/readme-screenshots/ss_layout_01.png)
-
-![Image of Layout Style](http://syrupad.github.io/syrupad-android-sdk/readme-screenshots/ss_layout_02.png)
-
-##### AdNative
-AdNative instance를 생성하고 loadAd()를 실행합니다.
-loadAd()의 수행결과(광고)는 AdNativeListener, onAdLoaded()를 통해 확인 할 수 있습니다. 
-```java
-AdNative adNative = new AdNative((Activity)getContext())
-.setClientId("AXT999001") // 준비 과정에 발급받은 ClientId를 직접 입력합니다
-.setSlotNo(AdSlot.NATIVE) // Slot을 설정합니다. 
-
-.enableContentAd() // Content Ad 상품을 받고자 할 때 설정합니다. 
-.enableAppInstallAd()  // App Install Ad 상품을 받고자 할 때 설정합니다. 
-.enableProductAd()  // Product Ad 상품을 받고자 할 때 설정합니다. 
-
-.setLayoutStyle(AdNative.LayoutStyle.APP_WALL) //LayoutStyle을 지정합니다. 
-.setReturnUrlsForImageAssets(false); // image, icon, logo등의 asset정보를 Url로만 받고자 할때 true로 설정합니다. 
-
-adNative.setListener(new AdNativeListener() {
-    @Override
-    public void onAdFailed(AdRequest.ErrorCode errorCode) {}
- 
-    @Override
-    public void onAdWillLoad() {}
- 
-    @Override
-    public void onAdLoaded(NativeAd nativeAd) {
-    	//loadAd()의 결과로 NativeAd 를 확인 할 수 있습니다. 
-    	if(nativeAd instanceof NativeContentAd) {
-            //((NativeProductAd) nativeAd).getBody();
-            //((NativeProductAd) nativeAd).getPrice();
-            //((NativeProductAd) nativeAd).getStore();
-            //((NativeProductAd) nativeAd).getSalePrice();
-            //((NativeProductAd) nativeAd).getImages();
-            //((NativeProductAd) nativeAd).getCallToAction();
-            //((NativeProductAd) nativeAd).getHeadline();
-            //((NativeProductAd) nativeAd).getLogo();
-            
-        } else if(nativeAd instanceof NativeAppInstallAd) {
-            //((NativeAppInstallAd) nativeAd).getBody();
-            //((NativeAppInstallAd) nativeAd).getHeadline();
-            //((NativeAppInstallAd) nativeAd).getStarRating();
-            //((NativeAppInstallAd) nativeAd).getCallToAction();
-            //((NativeAppInstallAd) nativeAd).getImages();
-            //((NativeAppInstallAd) nativeAd).getIcon();
-            //((NativeAppInstallAd) nativeAd).getPrice();
-            //((NativeAppInstallAd) nativeAd).getStore();
-            
-        } else if (nativeAd instanceof NativeProductAd) {
-            // ((NativeProductAd) nativeAd).getBody();
-            // ((NativeProductAd) nativeAd).getImages();
-            // ((NativeProductAd) nativeAd).getCallToAction();
-            // ((NativeProductAd) nativeAd).getHeadline();
-            // ((NativeProductAd) nativeAd).getLogo();
-            // ((NativeProductAd) nativeAd).getPrice();
-            // ((NativeProductAd) nativeAd).getSalePrice();
-            // ((NativeProductAd) nativeAd).getStore();
-    }
- 
-    @Override
-    public void onAdPresentScreen() {}
- 
-    @Override
-    public void onAdDismissScreen() {}
- 
-    @Override
-    public void onAdLeaveApplication() {}
-});
- 
-try {
-    adNative.loadAd();  //광고를 요청합니다. 
-} catch (Exception e) {
-    e.printStackTrace();
-}
-```
-또한 더이상 네이티브 광고를 사용하지 않을 때 사용중인 리소스들을 반환하기 위해 아래 함수를 호출합니다.
-```java
-@Override
-protected void onDestroy() {
-    mAdNative.destroyAd();
-    super.onDestroy();
-}
-```
-
-##### 노출과 클릭
-네이티브광고는 타광고와는 다르게 노출과 클릭에 대한 API 를 매체에서 직접 호출해야합니다. 
-
-노출과 클릭을 간편하게 적용할 수 있는 bind(), unbind() 메소드를 제공합니다. 
-bind()함수를 사용하면 네이티브광고가 적용된 View와 네이티브 광고를 매핑하여 노출, 클릭 API를 자동으로 호출합니다. 
-```java
-//광고가 사용자의 눈에 노출이 될 때 호출합니다. 
-AdNative.bind(view, nativeAd);
-
-//광고가 보이지 않을때 호출합니다. 
-AdNative.unbind(view, nativeAd);
-```
-
-bind()함수를 사용하지 않는다면 직접 노출과 클릭에 대한 API를 호출해야 합니다. 
-```java
-//광고가 사용자의 눈에 노출이 될 때 호출합니다. 
-nativeAd.impression(context);
-            
-//광고가 사용자에 의해 Click이 될 때 호출합니다. 
-nativeAd.click(context);
-```
-참고로 하나의 네이티비광고에 대해 복수개의 노출API가 호출되더라도 통계에는 한 개만 집게가 되고 클릭API는 매번 집게가 됩니다. (단 부정Click 제외)
 
 ### Step Ⅴ.  사용자 타겟팅 설정(option)
 Syrup Ad 에서는 App사용자들에게 맞춤형 광고를 제공하기 위해 아래 두 가지 기능을 제공합니다. 사용자 개인정보가 수집이 되면 반응률이 높은 맞춤형 광고를 받을 수 있습니다.
@@ -726,34 +555,6 @@ request.setKeywords(keywords);
 
 //광고 요청시점에 AdRequest instance를 parameter로 입력합니다.
 mAdView.loadAd(request);
-```
-약관동의 대화상자
-Syrup Ad 에서는 직접 개인정보 활용에 관련한 동의를 받고 있습니다. 동의를 받기 위해서는 개발자가 Syrup Ad에서 제공하는 method를 호출하여야 합니다. 
-```java
-//Dialog instance생성
-AdDialog dialog = new AdDialog(this);
-
-//Terms type의 dialog호출
-dialog.showTermsDialog(DialogType.TERMS_TYPE);
-```
-약관동의 대화상자는 기동의자의 경우와 대화상자 최근 노출로부터 15일 미만의 경우 대화상자가 나타나지 않습니다.  약관 대화상자가 노출되는지 여부는 AdDialog 객체의 canShowTermsDialog(DialogType) method를 통해서 판단 할 수 있습니다. 약관동의 대화상자 역시 닫히는 시점에 닫힘 여부를 listener를 통해 알 수 있습니다. listener는 필수 항목은 아닙니다.
-```java
-// 다이얼 로그 객체 생성
-AdDialog dialog = new AdDialog(mainActivity.this);
-
-// canShowAdDialog로 기 동의 자인지 판단
-if (dialog.canShowTermsDialog(DialogType.TERMS_TYPE)) {
-// true라면 미동의자이며 아래 Dialog를 호출한다.
-dialog.showTermsDialog(DialogType.TERMS_TYPE);
-
-	// dialog가 닫힐 때 호출되는 Listener
-dialog.setListener(new AdDialogListener() {
-
-	@Override
-	public void onDialogClosed() { }
-	// Dialog가 닫힘.
-});
-}
 ```
 
 ### FAQ
