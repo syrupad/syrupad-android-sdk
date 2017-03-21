@@ -150,7 +150,7 @@ AndroidMenifest.xml Sample Code
 </manifest>
 ```
 
-###Step IⅤ. 광고 View 생성 및 적용
+### Step IⅤ. 광고 View 생성 및 적용
 Syrup Ad 광고는 크게 배너 광고(inline), 삽입형 광고(interstitial) 그리고 플로팅(floating) 광고로 구분할 수 있습니다.
 개발자는 자신이 개발 중인 App내 원하는 크기의 광고를 수신하기 위해 아래 표에 정의된 Slot 중 한 개를 명시하여 광고를 요청하여야 합니다.
 
@@ -181,10 +181,10 @@ Syrup Ad 광고는 크게 배너 광고(inline), 삽입형 광고(interstitial) 
 |    n/a     | Native              | NATIVE          |7            |
 
 
-###배너 광고
+### 배너 광고
 Standard 배너, IAB Medium Rectangle배너, Large 배너는 AdView 클래스를 활용하여 App 개발자가 원하는 위치, 원하는 설정으로 광고View를 적용 할 수 있습니다. 배너 광고 적용에는 xml적용 방식과 java 적용 방식이 있습니다.
 
-#####AdView
+##### AdView
 A.	xml적용 방식
 개발자는 자신이 개발중인 layout xml상에 AdView를 배치 할 수 있습니다.
 ```xml
@@ -273,7 +273,7 @@ protected void onDestroy() {
     super.onDestroy();
 }
 ```
-#####Banner Life-cycle
+##### Banner Life-cycle
 ![Image of banner life-cycle](http://syrupad.github.io/syrupad-android-sdk/readme-screenshots/adview_lifecycle.png)
 매체의 특성에 맞게 광고를 적용 할 수 있으며 일반적인 적용은 위 그림의 life-cycle을 갖습니다.
   AdListener
@@ -335,8 +335,8 @@ B.	자체 스케줄링
 외부 Mediation SDK등으로 자체 스케줄링을 하는 경우 Syrup Ad SDK를 수동모드로 전환 합니다. 수동모드는 refreshInterval을 0으로 설정하여 1회씩 광고를 수신하는 모드입니다. 아래 그림과 같이 Syrup Ad 노출 시점 마다loadAd()를 호출합니다.
 ![Image of banner life-cycle](http://syrupad.github.io/syrupad-android-sdk/readme-screenshots/mediation_manual.png)
 
-###삽입형 광고
-#####AdInterstitial
+### 삽입형 광고
+##### AdInterstitial
 삽입형 광고는 새로운 창이 열리며 전면에 광고가 보여지는 형태입니다.
 ```java
 // Context를 parameter로 AdInterstitial객체를 생성합니다.
@@ -389,11 +389,11 @@ protected void onDestroy() {
     super.onDestroy();
 }
 ```
-#####Interstitial Life-Cycle
+##### Interstitial Life-Cycle
 ![Image of banner life-cycle](http://syrupad.github.io/syrupad-android-sdk/readme-screenshots/adinterstitial_lifecycle.png)
 interstitial은 일반적으로 그림과 같은 life-cycle을 갖습니다. loadAd()와 showAd()는 개발자가 원하는 시점에 호출이 가능합니다. 단 interstitial 광고 특성상 showAd()로 광고가 사용자에게 노출이 되어야 정산이 가능합니다.
 
-#####AdInterstitialListener
+##### AdInterstitialListener
 AdInterstitialListener를 이용하면 광고의 수신 상태, 광고 없음 및 광고 닫힘 등의 상태를 알 수 있습니다. AdInterstitialListener는 광고 수신에 필수 항목은 아닙니다.
 AdInterstitialListener의 적용 방식은 아래와 같습니다.
 ```java
@@ -424,10 +424,10 @@ public void onAdLeaveApplication () { }
 Interstitial 에서는 광고가 노출 될 때에 onAdPresentScreen()가 발생하고 광고가 닫힐 때 onAdDissmissScreen()이 발생합니다.
 ![Image of banner life-cycle](http://syrupad.github.io/syrupad-android-sdk/readme-screenshots/adinterstitial_landing.png)
 
-###플로팅 광고(floating)
+### 플로팅 광고(floating)
 플로팅 광고는 App화면 내 overlay로 배치되는 아이콘 형태의 광고입니다.
 플로팅 광고는 Instance를 생성한 뒤 광고를 요청하여 수신하는 Load 과정, 수신한 광고를 노출하는 Show과정으로 동작합니다. 매체에서 원하는 시점, 원하는 위치에 플로팅 광고를 노출 할 수 있고 모든 과정을 listener를 통해 모니터링 할 수 있습니다.
-#####AdFloating
+##### AdFloating
 Floating 객체를 생성하는 부분은 아래와 같습니다.
 
 ```java
@@ -495,7 +495,7 @@ mAdFloating.destroyAd();
 ```
 destroyAd()를 호출한 이후에는 loadAd() 또는 showAd()를 호출 할 수 없고 광고 수신을 하려면 새롭게 객체를 생성하여야 합니다.
 
-#####AdFloatingListener
+##### AdFloatingListener
 AdFloatingListener를 이용하면 광고의 수신 상태, 광고 없음 및 광고 닫힘 등의 상태를 알 수 있습니다. AdFloatingListener는 필수 내용입니다.
 ```java
 // AdFloating객체에 아래와 같이 Listener를 등록해야만 현재 상태를 알 수 있습니다.
@@ -540,10 +540,10 @@ public void onAdClicked() { }
 public void onAdClosed(boolean user) { }
 };
 ```
-###네이티브 광고
+### 네이티브 광고
 3종의 광고 타입이 있으며 매체에서 어떤 광고 타입을 수신할지 설정이 가능합니다. 각 광고별 Asset의 종류는 다음과 같습니다. 
 
-#####Content Ad
+##### Content Ad
 | Assets       | Example         |
 | :----------- | :-------------- |
 |Headline (max. 25 chars)	|Lowest mortgage rates|
@@ -554,7 +554,7 @@ public void onAdClosed(boolean user) { }
 |Advertiser (max. 25 chars)|NY Mortgage Inc.|
 |Click through URL (max. 1024 chars)	|http://www.nymtrust.com/|
 
-#####App Install Ad
+##### App Install Ad
 | Assets       | Example         |
 | :----------- | :-------------- |
 |Headline (max. 25 chars)	|Flood-It!|
@@ -567,7 +567,7 @@ public void onAdClosed(boolean user) { }
 |Price (max. 15 chars)		|Free|
 |Click through URL (max. 1024 chars)|https://play.google.com/store/apps/details?id=com.labpixies.flood|
 
-#####Product Ad
+##### Product Ad
 | Assets       | Example         |
 | :----------- | :-------------- |
 |Headline (max. 25 chars)	|정관장 홍삼정에브리타임 10ml*30|
@@ -580,7 +580,7 @@ public void onAdClosed(boolean user) { }
 |Sale Price (max. 15 chars)		|₩77,900|
 |Click through URL (max. 1024 chars)|http://deal.11st.co.kr/product/SellerProductDetail.tmall?method=getSellerProductDetail&prdNo=1243296986|
 
-#####LayoutStyle
+##### LayoutStyle
 매체의 Layout형태를 광고 요청 시점에 입력 할 수 있습니다. 
 
 | Laytout ID       | Description         |
@@ -596,7 +596,7 @@ public void onAdClosed(boolean user) { }
 
 ![Image of Layout Style](http://syrupad.github.io/syrupad-android-sdk/readme-screenshots/ss_layout_02.png)
 
-#####AdNative
+##### AdNative
 AdNative instance를 생성하고 loadAd()를 실행합니다.
 loadAd()의 수행결과(광고)는 AdNativeListener, onAdLoaded()를 통해 확인 할 수 있습니다. 
 ```java
@@ -677,7 +677,7 @@ protected void onDestroy() {
 }
 ```
 
-#####노출과 클릭
+##### 노출과 클릭
 네이티브광고는 타광고와는 다르게 노출과 클릭에 대한 API 를 매체에서 직접 호출해야합니다. 
 
 노출과 클릭을 간편하게 적용할 수 있는 bind(), unbind() 메소드를 제공합니다. 
@@ -756,7 +756,7 @@ dialog.setListener(new AdDialogListener() {
 }
 ```
 
-###FAQ
+### FAQ
 Q: 광고가 보이지 않습니다.
 A: Syrup Ad에서는 광고의 상태를 Listener를 통해서 알려 주고 있습니다. 현재의 AdView 또는 AdInterstitial의 광고 유무, 오류, 수신 상태를 개발자에게 전달해주고 있으니 Listener를 통해 문제를 파악하시길 바랍니다. 주기적으로 문제가 발생시 Syrup ad 운영센터로 연락주세요.
 
@@ -780,10 +780,10 @@ Warning: com.google.android.gms.common.api.zzh$zzc: can't find referenced method
 ```
 A: 프로젝트가 참조하는 Google Play services library의 버전이 높기 때문에 android-support-v4.jar파일을 필요로 합니다. 프로젝트내 libs폴더에 해당 파일을 복사바랍니다.
 
-###API Introduction
+### API Introduction
  첨부된 index.html파일 참조하세요.
 
-###ProGuard 사용
+### ProGuard 사용
 Syrup Ad SDK는 ProGuard를 사용하여 난독화(obfuscated)되어 있습니다. 개발이 완료된 Android 어플리케이션에 ProGuard를 사용할 때 ProGuard 설정에 다음 예외 문을 추가하여야 합니다.
 ```xml
 -keep class com.skplanet.tad.** { *; }
