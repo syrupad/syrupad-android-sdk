@@ -61,7 +61,7 @@ B.	Eclipse
 5.	아래 그림과 같이 체크표시가 보이면 OK버튼을 누르고 완료합니다.
 6.	추가적인 manifest설정은 Step III 에서 설명합니다.
 
-###Step III. Manifest Setting
+### Step III. Manifest Setting
 Syrup Ad SDK를 적용하기 위해서는 AndroidManifest.xml에 1개의 Activity와 5개의 Permission을 적용하여야 합니다.
 
 A.	Activity설정
